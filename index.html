@@ -9,6 +9,9 @@
 <link rel="stylesheet" href="assets/style.css">
 <title>Train Schedule</title>
 
+<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
 </head>
 
 <body>
@@ -22,77 +25,57 @@
 
               <div class="alert alert-primary" role="alert" >
                     <marquee behavior="scroll" direction="left" scrollamount="8">Current Train Schedule</marquee>
-                  </div>
+              </div>
 
+              <div class="panel-body">
               <table class="table table-striped">
                     <thead>
-                      <tr>
+                          <tr>
                         <th scope="col">TRAIN NAME</th>
                         <th scope="col">DESTINATION</th>
                         <th scope="col">FREQUENCY (MINS)</th>
                         <th scope="col">NEXT ARRIVAL</th>
                         <th scope="col">MINUTES AWAY</th>
-                      </tr>
+                        </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">Thomas the Tank Engine</th>
-                        <td>TBD</td>
-                        <td>TBD</td>
-                        <td>TBD</td>
-                        <td>TBD</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">The Polar Express</th>
-                        <td>TBD</td>
-                        <td>TBD</td>
-                        <td>TBD</td>
-                        <td>TBD</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">The Hogwarts Express</th>
-                        <td>TBD</td>
-                        <td>TBD</td>
-                        <td>TBD</td>
-                        <td>TBD</td>
-                      </tr>
-                    </tbody>
+                    <tbody id="new-train"></tbody>
                   </table>
+                  </div>
 <br>
 <br>
                   <div class="alert alert-primary" role="alert" >
                       <marquee behavior="scroll" direction="left" scrollamount="8">Add a Train</marquee>
                     </div>
 
+                    <div class="panel-body">
                   <form>
                       <div class="form-group">
-                        <label for="formGroupExampleInput"><strong>TRAIN NAME</strong></label>
+                        <label for="trainNameInput"><strong>TRAIN NAME</strong></label>
                         <input type="text" class="form-control" id="trainNameInput" placeholder="(name)">
                       </div>
                       <div class="form-group">
-                        <label for="formGroupExampleInput2"><strong>DESTINATION</strong></label>
+                        <label for="destinationInput"><strong>DESTINATION</strong></label>
                         <input type="text" class="form-control" id="destinationInput" placeholder="(destination)">
                       </div>
                       <div class="form-group">
-                          <label for="formGroupExampleInput3"><strong>FIRST TRAIN TIME (HH:MM - MILITARY TIME)</strong></label>
+                          <label for="trainTimeInput"><strong>FIRST TRAIN TIME (HH:MM - MILITARY TIME)</strong></label>
                           <input type="text" class="form-control" id="trainTimeInput" placeholder="(time)">
                         </div>
                         <div class="form-group">
-                            <label for="formGroupExampleInput4"><strong>FREQUENCY (MIN)</strong></label>
+                            <label for="frequencyInput"><strong>FREQUENCY (MIN)</strong></label>
                             <input type="text" class="form-control" id="frequencyInput" placeholder="(frequency)">
                           </div>
                           <br>
+                        <button type="button" class="btn btn-primary btn-lg" id="submitBtn">Submit</button>
                     </form>
-                    <button type="button" class="btn btn-primary btn-lg" id="submitBtn">Submit</button>
+                    </div>
                     <br>
                     <br>
                     <br>
-
-              
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="/assets/logic.js"></script>
+<script src="assets/logic.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
