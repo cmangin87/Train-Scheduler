@@ -16,41 +16,41 @@
         <div class="jumbotron jumbotron-fluid">
                 <div class="container">
                   <h1 class="display-4">Train Schedule</h1>
-                  <p class="lead">This will show when the next train is arriving.</p>
+                  <p class="lead">"I Choo-Choo Choose You"</p>
                 </div>
               </div>
 
-              <div class="alert alert-dark" role="alert" >
-                    <marquee behavior="scroll" direction="left" scrollamount="30">Current Train Schedule</marquee>
+              <div class="alert alert-primary" role="alert" >
+                    <marquee behavior="scroll" direction="left" scrollamount="8">Current Train Schedule</marquee>
                   </div>
 
               <table class="table table-striped">
                     <thead>
                       <tr>
-                        <th scope="col">Train Name</th>
-                        <th scope="col">Destination</th>
-                        <th scope="col">Frequency (mins)</th>
-                        <th scope="col">Next Arrival</th>
-                        <th scope="col">Minutes Away</th>
+                        <th scope="col">TRAIN NAME</th>
+                        <th scope="col">DESTINATION</th>
+                        <th scope="col">FREQUENCY (MINS)</th>
+                        <th scope="col">NEXT ARRIVAL</th>
+                        <th scope="col">MINUTES AWAY</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <th scope="row">1</th>
+                        <th scope="row">Thomas the Tank Engine</th>
                         <td>TBD</td>
                         <td>TBD</td>
                         <td>TBD</td>
                         <td>TBD</td>
                       </tr>
                       <tr>
-                        <th scope="row">2</th>
+                        <th scope="row">The Polar Express</th>
                         <td>TBD</td>
                         <td>TBD</td>
                         <td>TBD</td>
                         <td>TBD</td>
                       </tr>
                       <tr>
-                        <th scope="row">3</th>
+                        <th scope="row">The Hogwarts Express</th>
                         <td>TBD</td>
                         <td>TBD</td>
                         <td>TBD</td>
@@ -58,6 +58,37 @@
                       </tr>
                     </tbody>
                   </table>
+<br>
+<br>
+                  <div class="alert alert-primary" role="alert" >
+                      <marquee behavior="scroll" direction="left" scrollamount="8">Add a Train</marquee>
+                    </div>
+
+                  <form>
+                      <div class="form-group">
+                        <label for="formGroupExampleInput"><strong>TRAIN NAME</strong></label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="(name)">
+                      </div>
+                      <div class="form-group">
+                        <label for="formGroupExampleInput2"><strong>DESTINATION</strong></label>
+                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="(destination)">
+                      </div>
+                      <div class="form-group">
+                          <label for="formGroupExampleInput3"><strong>FIRST TRAIN TIME (HH:MM - MILITARY TIME)</strong></label>
+                          <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="(time)">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput4"><strong>FREQUENCY (MIN)</strong></label>
+                            <input type="text" class="form-control" id="formGroupExampleInput4" placeholder="(frequency)">
+                          </div>
+                          <br>
+                    </form>
+                    <button type="button" class="btn btn-primary btn-lg">Submit</button>
+                    <br>
+                    <br>
+                    <br>
+
+              
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
