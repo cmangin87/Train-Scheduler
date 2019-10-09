@@ -8,14 +8,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
 <link rel="stylesheet" href="assets/style.css">
 <title>Train Schedule</title>
-
 <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
 
 <body>
-
+  <div id="container">
         <div class="jumbotron jumbotron-fluid">
                 <div class="container">
                   <h1 class="display-4">Train Schedule</h1>
@@ -25,12 +24,10 @@
 
               <div class="alert alert-primary" role="alert" >
                     <marquee behavior="scroll" direction="left" scrollamount="8">Current Train Schedule</marquee>
-              </div>
 
-              <div class="panel-body">
               <table class="table table-striped">
                     <thead>
-                          <tr>
+                      <tr>
                         <th scope="col">TRAIN NAME</th>
                         <th scope="col">DESTINATION</th>
                         <th scope="col">FREQUENCY (MINS)</th>
@@ -41,13 +38,12 @@
                     <tbody id="new-train"></tbody>
                   </table>
                   </div>
+    </div>
 <br>
 <br>
                   <div class="alert alert-primary" role="alert" >
                       <marquee behavior="scroll" direction="left" scrollamount="8">Add a Train</marquee>
-                    </div>
 
-                    <div class="panel-body">
                   <form>
                       <div class="form-group">
                         <label for="trainNameInput"><strong>TRAIN NAME</strong></label>
@@ -63,12 +59,12 @@
                         </div>
                         <div class="form-group">
                             <label for="frequencyInput"><strong>FREQUENCY (MIN)</strong></label>
-                            <input type="text" class="form-control" id="frequencyInput" placeholder="(frequency)">
+                            <input type="number" class="form-control" id="frequencyInput" placeholder="(frequency)">
                           </div>
                           <br>
-                        <button type="button" class="btn btn-primary btn-lg" id="submitBtn">Submit</button>
+                        <button id="submitBtn" type="submit" class="btn btn-primary btn-lg" >Submit</button>
                     </form>
-                    </div>
+                  </div>
                     <br>
                     <br>
                     <br>
@@ -79,5 +75,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </body>
 </html>

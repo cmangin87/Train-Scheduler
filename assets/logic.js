@@ -14,49 +14,40 @@ var config = {
 
         var trainName = "";
         var destination = "";
-        var trainTime = 0;
-        var frequency = "";
+        var trainTime = "";
+        var frequency = 0;
 
-  $("#submitBtn").on("click", function(event) {
+  $("#submitBtn").on("click", function (event) {
       event.preventDefault();
 
-    trainName = $("trainNameInput").val().trim();
-    destination = $("destinationInput").val().trim();
-    trainTime = $("trainTimeInput").val().trim();
-    frequency = $("frequencyInput").val().trim();
+    trainName = $("#trainNameInput").val().trim();
+    destination = $("#destinationInput").val().trim();
+    trainTime = $("#trainTimeInput").val().trim();
+    frequency = $("#frequencyInput").val().trim();
 
         console.log(trainName);
         console.log(destination);
         console.log(trainTime);
         console.log(frequency);
 
-        var newTrain = {
+        database.ref().push({
             trainName: trainName,
             destination: destination,
             trainTime: trainTime,
             frequency: frequency,
-        };
+            dateAdded: firebase.database.ServerValue.TIMESTAMP
+        })
+  })
 
-    database.ref().push(newTrain);
-
-    $("trainNameInput").val("");
-    $("destinationInput").val("");
-    $("trainTimeInput").val("");
-    $("frequencyInput").val("");
-
-  });
-
-  database.ref().on("child_added", function(snapshot) {
-      console.log(snapshot.val());
-
-    var trainName = snapshot.val().trainName;
-    var destination = snapshot.val().destination;
-    var trainTime = snapshot.val().trainTime;
-    var frequency = snapshot.val().frequency;
-
-        var frequency;
-
-        var trainTime = 0;
+  database.ref().on("child_added", function (childSnapshot) {
+      console.log(childSnapshot.val());
+      console.log(childSnapshot.val().trainName);
+      console.log(childSnapshot.val().destination);
+      console.log(childSnapshot.val().trainTime);
+      console.log(childSnapshot.val().frequency);
+   
+        trainTime = childSnapshot.val().trainTime;
+        frequency = childSnapshot.val().frequency;
 
         var trainTimeConverted = moment(trainTime, "HH:mm").subtract(1, "years");
             console.log(trainTimeConverted);
@@ -77,15 +68,15 @@ var config = {
             console.log("Arriving at: " + moment(nextTrain).format("HH:mm"));
 
 
-            $("#new-train").append("<tr><td>" + trainName +
-                "</td><td>" + destination +
-                "</td><td>" + frequency +
-                "</td><td>" + nextTrain + 
-                "</td><td>" + minutesUntil + "</td></tr>");
+            $("#new-train").append(" <tr class='display'><td id='train-display'> " + childSnapshot.val().trainTime +
+                " </td><td id='destination-display'> " + childSnapshot.val().destination +
+                " </td><td id='frequency-display'> " + childSnapshot.val().frequency +
+                " </td><td id='time-display'> " + moment(nextTrain).format("HH:mm") + 
+                " </td> + <td id='arrival'> " + minutesUntil + "</tr>");
 
-  },
-
-    function(errorObject) {
+  }, function(errorObject) {
 
             console.log("Errors handled: " + errorObject.code);
         });
+
+   
